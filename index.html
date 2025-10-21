@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Letícia — Portfólio</title>
+  <meta name="description" content="Portfólio de Letícia — Estudante de Ciência da Computação" />
+
+  <style>
+    /* Reset simples */
+    * {box-sizing: border-box; margin:0;padding:0}
+    body {font-family: Inter, Roboto, Arial, sans-serif; line-height:1.5; color:#111;
+          background: #f7f8fb; padding:24px;}
+    .container {max-width:980px; margin:0 auto; background:#fff; border-radius:10px;
+                box-shadow: 0 6px 20px rgba(19,24,37,0.06); overflow:hidden;}
+    header {display:flex; align-items:center; gap:16px; padding:28px;}
+
+    /* Avatar com imagem */
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background:#e6eef9;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .head-text h1 {font-size:22px; margin-bottom:6px;}
+    .head-text p {color:#556; font-size:14px;}
+
+    nav {display:flex; gap:8px; margin:0 28px 18px;}
+    nav a {text-decoration:none; padding:8px 12px; border-radius:8px; color:#1c4ed8; font-weight:600; font-size:13px;}
+    nav a:hover {background:#eef2ff;}
+
+    main {padding:0 28px 28px;}
+    .grid {display:grid; grid-template-columns: 1fr 340px; gap:20px;}
+    @media (max-width:900px) { .grid{grid-template-columns: 1fr;} .avatar{width:64px;height:64px}}
+
+    .card {background:#fff; border-radius:10px; padding:18px; box-shadow:0 3px 10px rgba(22,28,45,0.04);}
+    h2 {font-size:18px; margin-bottom:10px; color:#0f172a;}
+    p.lead {color:#334155; margin-bottom:12px;}
+
+    .skills {display:flex; gap:8px; flex-wrap:wrap;}
+    .skill {background:#eef2ff; color:#1e3a8a; padding:8px 10px; border-radius:999px; font-weight:600; font-size:13px;}
+
+    .projects {display:flex; flex-direction:column; gap:12px;}
+    .proj {border-left:4px solid #c7d2fe; padding:12px; border-radius:6px; background:#fbfdff;}
+    .proj a {font-weight:700; color:#0f172a; text-decoration:none;}
+    .proj small {display:block; color:#475569; margin-top:6px; font-size:13px;}
+
+    .side {display:flex; flex-direction:column; gap:12px;}
+    .download-btn, .contact-btn {
+      display:inline-block; text-decoration:none; padding:10px 12px; border-radius:8px;
+      font-weight:700; text-align:center;}
+    .download-btn {background:#0f172a;color:white;}
+    .contact-btn {background:#eef2ff; color:#0f172a;}
+
+    footer {padding:18px 28px 28px; color:#64748b; font-size:13px; display:flex; justify-content:space-between; align-items:center;}
+    .small {font-size:13px; color:#475569}
+
+    /* Modal To-Do */
+    .modal {position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.45);}
+    .modal .inner {background:white; padding:18px; border-radius:10px; max-width:680px; width:92%;}
+    .close {background:#eef2ff; border:none; padding:8px 10px; border-radius:8px; cursor:pointer;}
+  </style>
+</head>
+
+<body>
+  <!-- Modal com o To-Do App -->
+  <div class="modal" id="todoModal">
+    <div class="inner">
+      <h2>📋 To-Do App</h2>
+      <input type="text" id="taskInput" placeholder="Digite uma tarefa..." />
+      <button onclick="addTask()">Adicionar</button>
+      <ul id="taskList"></ul>
+      <div style="margin-top:14px;">
+        <button class="close" onclick="fecharTodo()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <img src="Foto-de-rosto-recente.jpeg" alt="Foto de Letícia" />
+      </div>
+      <div class="head-text">
+        <h1>Letícia dos S. M. Cruz</h1>
+        <p>Estudante de Ciência da Computação — Front-end | HTML | GitHub</p>
+        <nav>
+          <a href="#sobre">Sobre</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <!-- content column -->
+        <div>
+          <section id="sobre" class="card">
+            <h2>Sobre</h2>
+            <p class="lead">
+              Olá! Sou estudante de Ciência da Computação (bacharelado) e estou iniciando em desenvolvimento Front-end.
+              Estou aprendendo HTML, CSS e JavaScript básico aplicado ao WordPress e Git. Estou interessada em oportunidades
+              voltadas para Ciência de Dados para aplicar meus conhecimentos.
+            </p>
+            <p>
+              <strong>Objetivo:</strong> conseguir participar de projetos em Ciência de Dados para iniciantes e contribuir com desenvolvimento web.
+            </p>
+          </section>
+
+          <section id="projetos" class="card" style="margin-top:14px;">
+            <h2>Projetos (exemplos)</h2>
+
+            <div class="projects">
+              <div class="proj">
+                <a href="https://github.com/monteleticia14-blip/portfolio_pessoal" target="_blank" rel="noopener">Código do portfólio pessoal</a>
+                <small>Site estático com HTML. Projetos e formulário de contato. Código do portfólio no GitHub.</small>
+              </div>
+
+              <div class="proj">
+                <a href="todo.html" target="_blank" rel="noopener">To-Do App (JS)</a>
+                <small>Aplicação simples em JavaScript para gerenciar tarefas. Mostra DOM, armazenamento local e manipulação básica de eventos.</small>
+              </div>
+            </div>
+          </section>
+
+          <section id="habilidades" class="card" style="margin-top:14px;">
+            <h2>Habilidades</h2>
+            <div class="skills" style="margin-bottom:10px;">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Git / GitHub</span>
+              <span class="skill">WordPress</span>
+              <span class="skill">PHP básico</span>
+            </div>
+            <p style="color:#475569">Observação: projetos e repositórios no GitHub mostram o nível prático atual. Estou constantemente atualizando com novos projetos.</p>
+          </section>
+        </div>
+
+        <!-- coluna lateral -->
+        <aside class="side">
+          <div class="card">
+            <h2>Currículo</h2>
+            <p class="small">Baixe meu currículo atualizado (PDF) e veja o histórico escolar no anexo.</p>
+            <a class="download-btn" href="curriculum.pdf" download="Curriculo_LeticiaCruz.pdf">Baixar currículo (PDF)</a>
+          </div>
+
+          <div class="card" id="contato">
+            <h2>Contato</h2>
+            <p class="small">Fale comigo: disponibilidade para 10–20h/semana.</p>
+            <a class="contact-btn" href="mailto:leticia.santos_14@outlook.com?subject=Oportunidade%20–%20Assistente%20de%20Pesquisa">Enviar e-mail</a>
+            <div style="height:8px"></div>
+            <p style="font-size:13px;color:#64748b">GitHub:</p>
+            <a href="https://github.com/monteleticia14-blip" target="_blank">github.com/monteleticia14-blip</a>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <span>© 2025 Letícia Cruz</span>
+      <span>Feito com ❤️ e HTML</span>
+    </footer>
+  </div>
+
+  <script>
+    function abrirTodo() {
+      document.getElementById("todoModal").style.display = "flex";
+    }
+
+    function fecharTodo() {
+      document.getElementById("todoModal").style.display = "none";
+    }
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskText = input.value.trim();
+
+      if (taskText === "") {
+        alert("Digite uma tarefa antes de adicionar!");
+        return;
+      }
+
+      const li = document.createElement("li");
+
+      const span = document.createElement("span");
+      span.textContent = taskText;
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const completeBtn = document.createElement("button");
+      completeBtn.textContent = "✔️";
+      completeBtn.onclick = () => {
+        li.classList.toggle("completed");
+      };
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "🗑️";
+      deleteBtn.onclick = () => {
+        li.remove();
+      };
+
+      actions.appendChild(completeBtn);
+      actions.appendChild(deleteBtn);
+
+      li.appendChild(span);
+      li.appendChild(actions);
+
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
