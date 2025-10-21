@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Indicadores Econômicos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Painel de Indicadores Econômicos</h1>
+    <p>Dados atualizados do Banco Central do Brasil</p>
+  </header>
+
+  <main id="indicadores">
+    <div class="card">
+      <h2>Inflação (IPCA)</h2>
+      <p id="ipca">Carregando...</p>
+    </div>
+
+    <div class="card">
+      <h2>PIB</h2>
+      <p id="pib">Carregando...</p>
+    </div>
+
+    <div class="card">
+      <h2>Câmbio (USD/BRL)</h2>
+      <p id="cambio">Carregando...</p>
+    </div>
+
+    <div class="card">
+      <h2>Taxa Selic</h2>
+      <p id="selic">Carregando...</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por Letícia Monte Cruz © 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
